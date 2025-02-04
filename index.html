@@ -11,14 +11,17 @@
   <!-- AOS Animation CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   <style>
+    /* Basic resets & smooth scrolling */
     body {
       font-family: 'Lato', sans-serif;
       background-color: #fafafa;
       color: #333;
       scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
     }
-    /* Animated Gradient Background for Hero - Reduced Height */
-    .hero {
+    /* Hero Section with Animated Gradient - Reduced Height */
+    header.hero {
       position: relative;
       height: 250px;
       background: linear-gradient(270deg, #ff758c, #ff7eb3, #f9a1bc, #f7c6a9);
@@ -30,15 +33,13 @@
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
-    .hero-overlay {
+    header.hero .hero-overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.3);
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.3);
     }
-    .hero-content {
+    header.hero .hero-content {
       position: relative;
       z-index: 2;
       text-align: center;
@@ -47,22 +48,22 @@
       color: #fff;
       padding: 0 20px;
     }
-    .hero-content h1 {
+    header.hero .hero-content h1 {
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
     }
-    .hero-content p {
+    header.hero .hero-content p {
       font-size: 1.1rem;
     }
     /* Sticky Navigation Bar */
-    .sticky-nav {
+    nav.sticky-nav {
       position: sticky;
       top: 0;
       z-index: 1030;
       background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
     /* Navigation Tabs */
     .nav-tabs .nav-link {
@@ -79,18 +80,25 @@
       border-bottom: 3px solid #ff758c;
       color: #ff758c;
     }
+    /* Main Content */
+    main {
+      padding-top: 20px;
+    }
+    .tab-content {
+      padding-top: 20px;
+    }
     /* Card Design */
     .activity-card {
       border: none;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       overflow: hidden;
       background-color: #fff;
     }
     .activity-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     }
     .card-img-top {
       height: 200px;
@@ -113,7 +121,7 @@
     .modal-map {
       height: 300px;
     }
-    /* Section Title */
+    /* Section Titles */
     .section-title {
       margin: 40px 0 20px;
       text-align: center;
@@ -121,21 +129,17 @@
       font-weight: 700;
       color: #444;
     }
-    /* Overview Intro */
+    /* Overview Intro Text */
     .overview-intro {
       text-align: center;
       font-size: 1.1rem;
       margin-bottom: 30px;
       color: #555;
     }
-    /* Ensure tab content starts at the top */
-    .tab-content {
-      padding-top: 20px;
-    }
   </style>
 </head>
 <body>
-  <!-- Hero Section -->
+  <!-- Use semantic HTML5 elements -->
   <header class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content container">
@@ -162,13 +166,12 @@
     </ul>
   </nav>
 
-  <!-- Main Container with Tab Contents -->
-  <div class="container mb-5">
+  <main class="container mb-5">
     <!-- Overview Tab -->
     <section id="overview" class="tab-pane fade show active" role="tabpanel" aria-labelledby="overview-tab">
       <h2 class="section-title" data-aos="fade-up">Trip Overview</h2>
       <p class="overview-intro" data-aos="fade-up" data-aos-delay="200">
-        This luxury trip takes you on a curated journey through Cambridge—from your arrival to a heartfelt farewell. Explore immersive experiences, historic landmarks, and cultural delights. Browse the schedule below for a full day-by-day breakdown.
+        This luxury trip takes you on a curated journey through Cambridge—from your arrival to a heartfelt farewell. Immerse yourself in historic landmarks, cultural experiences, and culinary delights. Explore the schedule below for a full day-by-day breakdown.
       </p>
       <div class="table-responsive" data-aos="fade-up" data-aos-delay="400">
         <table class="table table-striped overview-table">
@@ -332,7 +335,7 @@
               <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-arrival">Learn More</button>
               <div class="collapse mt-2" id="details-arrival">
                 <p class="small">
-                  Explore the city on foot as you soak in the vibrant atmosphere and historic architecture. This leisurely start sets the stage for a day full of discovery and inspiration.
+                  Explore the city on foot as you soak in the vibrant atmosphere and historic architecture. This relaxed start sets the tone for a day full of discovery and inspiration.
                 </p>
               </div>
             </div>
@@ -351,7 +354,7 @@
               <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-trinity">View Map</button>
               <div class="collapse mt-2" id="details-trinity">
                 <p class="small">
-                  Trinity College is a cornerstone of Cambridge’s academic heritage. Discover its rich history and impressive architecture while learning about its notable alumni and traditions.
+                  Trinity College is a cornerstone of Cambridge’s academic heritage. Discover its rich history, impressive architecture, and the traditions that have shaped generations of scholars.
                 </p>
               </div>
             </div>
@@ -370,7 +373,7 @@
               <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-mercado">View Map</button>
               <div class="collapse mt-2" id="details-mercado">
                 <p class="small">
-                  Enjoy the authentic flavors and lively ambiance that make Mercado Central a culinary gem in Cambridge. Learn about the unique dishes and ingredients that set this venue apart.
+                  Enjoy the authentic flavors and lively ambiance that make Mercado Central a culinary gem. Learn about the signature dishes and ingredients that set this dining experience apart.
                 </p>
               </div>
             </div>
@@ -389,7 +392,7 @@
               <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-checkin">View Map</button>
               <div class="collapse mt-2" id="details-checkin">
                 <p class="small">
-                  Experience modern comfort blended with historic charm. The Graduate offers an inspiring setting to unwind and prepare for an afternoon full of exploration.
+                  Experience modern comfort blended with historic charm. The Graduate provides an inspiring and luxurious setting to unwind before the afternoon’s adventures.
                 </p>
               </div>
             </div>
@@ -408,7 +411,7 @@
               <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-fitz">View Map</button>
               <div class="collapse mt-2" id="details-fitz">
                 <p class="small">
-                  Discover diverse collections ranging from ancient artifacts to modern masterpieces. The museum provides deep insights into art, culture, and the human experience.
+                  Discover diverse collections ranging from ancient artifacts to modern masterpieces. The museum provides profound insights into art, culture, and the evolution of human creativity.
                 </p>
               </div>
             </div>
@@ -421,13 +424,13 @@
             <div class="card-body">
               <h5 class="card-title">6:00 PM - Stroll Along The Backs</h5>
               <p class="card-text">
-                Enjoy a scenic walk along the River Cam and admire the picturesque college gardens.
+                Enjoy a scenic walk along the River Cam, admiring picturesque college gardens.
               </p>
               <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-backs">Learn More</button>
               <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-backs">View Map</button>
               <div class="collapse mt-2" id="details-backs">
                 <p class="small">
-                  The Backs offer a stunning fusion of nature and history. Learn about the centuries-old colleges that line the river and take in breathtaking views along the way.
+                  The Backs offer a stunning blend of nature and history. Learn about the heritage of the surrounding colleges while soaking in breathtaking views along the river.
                 </p>
               </div>
             </div>
@@ -445,7 +448,7 @@
               <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-evening">Learn More</button>
               <div class="collapse mt-2" id="details-evening">
                 <p class="small">
-                  Experience the enchanting transformation of the city at dusk. This peaceful walk invites quiet reflection and a chance to savor the magic of Cambridge.
+                  Experience the enchanting transformation of the city at dusk. This peaceful walk offers a moment of quiet reflection, leaving you inspired by Cambridge’s magic.
                 </p>
               </div>
             </div>
@@ -464,13 +467,13 @@
               <div class="card-body">
                 <h5 class="card-title">9:00 AM - Sedgwick Museum</h5>
                 <p class="card-text">
-                  Discover Earth’s ancient history through fascinating exhibits of fossils and minerals.
+                  Discover Earth’s ancient history through captivating exhibits of fossils and minerals.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-sedgwick">Learn More</button>
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-sedgwick">View Map</button>
                 <div class="collapse mt-2" id="details-sedgwick">
                   <p class="small">
-                    Uncover the secrets of our planet’s formation with engaging displays that reveal the processes shaping the Earth. This museum is a gateway to understanding geological time.
+                    Uncover the secrets of our planet’s formation with interactive displays that reveal the processes shaping the Earth. This museum serves as a fascinating portal into geological time.
                   </p>
                 </div>
               </div>
@@ -489,7 +492,7 @@
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-whipple">View Map</button>
                 <div class="collapse mt-2" id="details-whipple">
                   <p class="small">
-                    Dive into the fascinating world of science through artifacts that tell the story of human discovery. Learn about breakthroughs that changed the course of history.
+                    Discover fascinating artifacts that trace the journey of scientific innovation. Learn about the breakthroughs that transformed our understanding of the world.
                   </p>
                 </div>
               </div>
@@ -502,13 +505,13 @@
               <div class="card-body">
                 <h5 class="card-title">12:00 PM - Mathematical Bridge</h5>
                 <p class="card-text">
-                  Marvel at the brilliant engineering behind the Mathematical Bridge at Queens’ College.
+                  Marvel at the ingenious engineering of the Mathematical Bridge at Queens’ College.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-mathbridge">Learn More</button>
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-mathbridge">View Map</button>
                 <div class="collapse mt-2" id="details-mathbridge">
                   <p class="small">
-                    This remarkable structure combines art and mathematics in a seamless design. Learn about the engineering marvels behind its construction and the stories that surround it.
+                    This remarkable structure fuses mathematics and art, offering a captivating study in design. Discover the fascinating engineering behind this timeless marvel.
                   </p>
                 </div>
               </div>
@@ -521,12 +524,12 @@
               <div class="card-body">
                 <h5 class="card-title">1:30 PM - Free Time (Lunch/Leisure)</h5>
                 <p class="card-text">
-                  Enjoy a relaxed break to savor lunch and take in the local flavors.
+                  Enjoy a relaxed break to savor lunch and explore local dining options.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-free1">Learn More</button>
                 <div class="collapse mt-2" id="details-free1">
                   <p class="small">
-                    Use this time to explore local dining options or simply rest. It’s the perfect opportunity to immerse yourself in Cambridge’s culinary scene.
+                    Take time to recharge while experiencing the culinary delights of Cambridge. This break allows you to absorb the local flavors and ambiance.
                   </p>
                 </div>
               </div>
@@ -545,7 +548,7 @@
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-stjohns">View Map</button>
                 <div class="collapse mt-2" id="details-stjohns">
                   <p class="small">
-                    This enchanting area is steeped in tradition and lore. Learn about the legends and history behind the college and its famed bridge.
+                    This area is steeped in tradition and romance. Discover the legends behind the Bridge of Sighs and learn about the college’s rich cultural heritage.
                   </p>
                 </div>
               </div>
@@ -558,13 +561,13 @@
               <div class="card-body">
                 <h5 class="card-title">4:00 PM - The Round Church</h5>
                 <p class="card-text">
-                  Visit one of Cambridge’s oldest landmarks, famed for its unique circular design.
+                  Visit one of Cambridge’s oldest landmarks, renowned for its unique circular design.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-round">Learn More</button>
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-round">View Map</button>
                 <div class="collapse mt-2" id="details-round">
                   <p class="small">
-                    The Round Church offers insights into medieval architecture and religious history. Discover its origins, cultural significance, and enduring mysteries.
+                    Learn about the medieval origins and religious significance of this rare architectural gem. Its design and history make it an enduring symbol of Cambridge.
                   </p>
                 </div>
               </div>
@@ -577,13 +580,13 @@
               <div class="card-body">
                 <h5 class="card-title">5:30 PM - Evensong at King's College Chapel</h5>
                 <p class="card-text">
-                  Experience the transcendent choral Evensong in the majestic setting of King's College Chapel.
+                  Experience a transcendent choral performance in the majestic setting of King's College Chapel.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-kings">Learn More</button>
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-kings">View Map</button>
                 <div class="collapse mt-2" id="details-kings">
                   <p class="small">
-                    Let the ethereal music and awe-inspiring Gothic architecture transport you. Learn about the chapel’s rich history, its role in Cambridge culture, and the power of its acoustics.
+                    Let the ethereal music and awe-inspiring Gothic architecture transport you. Discover the chapel’s storied past and its continuing role in Cambridge’s cultural life.
                   </p>
                 </div>
               </div>
@@ -602,7 +605,7 @@
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-corpus">View Map</button>
                 <div class="collapse mt-2" id="details-corpus">
                   <p class="small">
-                    This striking timepiece embodies the beauty and impermanence of time. Learn about its design inspiration and the philosophy behind its mesmerizing display.
+                    Discover the philosophy and design behind this striking timepiece. Its contemporary aesthetic invites reflection on the transient nature of time.
                   </p>
                 </div>
               </div>
@@ -627,7 +630,7 @@
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-checkout">Learn More</button>
                 <div class="collapse mt-2" id="details-checkout">
                   <p class="small">
-                    Reflect on the comfort and luxury you enjoyed during your stay. This smooth departure marks the end of an unforgettable Cambridge experience.
+                    Reflect on the comfort and luxury you experienced during your stay. This smooth departure marks the end of an unforgettable Cambridge adventure.
                   </p>
                 </div>
               </div>
@@ -658,13 +661,13 @@
               <div class="card-body">
                 <h5 class="card-title">1:00 PM - Last Stroll Through The Backs</h5>
                 <p class="card-text">
-                  Take one final, reflective walk along the scenic River Cam.
+                  Enjoy one final, reflective walk along the scenic River Cam.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-laststroll">Learn More</button>
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-backs">View Map</button>
                 <div class="collapse mt-2" id="details-laststroll">
                   <p class="small">
-                    Absorb the tranquil beauty of The Backs one last time before you depart. This peaceful stroll is the perfect finale to your memorable journey.
+                    Absorb the tranquil beauty of The Backs one last time before you depart. This peaceful stroll offers a perfect finale to your memorable journey.
                   </p>
                 </div>
               </div>
@@ -682,7 +685,7 @@
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-departure">Learn More</button>
                 <div class="collapse mt-2" id="details-departure">
                   <p class="small">
-                    Carry the beauty and insights of Cambridge with you as you leave. Your journey here will remain a cherished part of your travel story.
+                    Carry the beauty and insights of Cambridge with you as you leave. Your journey here will continue to inspire your future travels.
                   </p>
                 </div>
               </div>
@@ -691,9 +694,9 @@
         </div>
       </section>
     </div>
-  </div>
+  </main>
 
-  <!-- Map Modals -->
+  <!-- Map Modals (All in one file) -->
   <!-- Check-In Modal -->
   <div class="modal fade" id="modal-checkin" tabindex="-1" aria-labelledby="modal-checkin-label" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -983,7 +986,6 @@
     </div>
   </div>
 
-  <!-- Footer -->
   <footer class="text-center py-4">
     <p class="small">2025 Olly Jeffers. All rights reserved.</p>
   </footer>
