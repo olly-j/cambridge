@@ -32,8 +32,10 @@
     }
     .hero-overlay {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(0,0,0,0.3);
     }
     .hero-content {
@@ -126,6 +128,10 @@
       margin-bottom: 30px;
       color: #555;
     }
+    /* Ensure tab content starts at the top */
+    .tab-content {
+      padding-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -157,7 +163,7 @@
   </nav>
 
   <!-- Main Container with Tab Contents -->
-  <div class="container my-5">
+  <div class="container mb-5">
     <!-- Overview Tab -->
     <section id="overview" class="tab-pane fade show active" role="tabpanel" aria-labelledby="overview-tab">
       <h2 class="section-title" data-aos="fade-up">Trip Overview</h2>
@@ -326,7 +332,7 @@
               <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-arrival">Learn More</button>
               <div class="collapse mt-2" id="details-arrival">
                 <p class="small">
-                  Explore the city on foot as you soak in the vibrant atmosphere and historic architecture. This leisurely start sets the tone for a day full of discovery and inspiration.
+                  Explore the city on foot as you soak in the vibrant atmosphere and historic architecture. This leisurely start sets the stage for a day full of discovery and inspiration.
                 </p>
               </div>
             </div>
@@ -345,7 +351,7 @@
               <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-trinity">View Map</button>
               <div class="collapse mt-2" id="details-trinity">
                 <p class="small">
-                  Trinity College is a cornerstone of Cambridge’s academic heritage. Discover its rich history and impressive architecture while learning about the college’s notable alumni and traditions.
+                  Trinity College is a cornerstone of Cambridge’s academic heritage. Discover its rich history and impressive architecture while learning about its notable alumni and traditions.
                 </p>
               </div>
             </div>
@@ -383,7 +389,7 @@
               <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-checkin">View Map</button>
               <div class="collapse mt-2" id="details-checkin">
                 <p class="small">
-                  Enjoy modern comforts blended with historic charm. The Graduate offers an inspiring setting to unwind and prepare for an afternoon full of exploration.
+                  Experience modern comfort blended with historic charm. The Graduate offers an inspiring setting to unwind and prepare for an afternoon full of exploration.
                 </p>
               </div>
             </div>
@@ -415,7 +421,7 @@
             <div class="card-body">
               <h5 class="card-title">6:00 PM - Stroll Along The Backs</h5>
               <p class="card-text">
-                Enjoy a tranquil walk along the River Cam, admiring the scenic college gardens.
+                Enjoy a scenic walk along the River Cam and admire the picturesque college gardens.
               </p>
               <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-backs">Learn More</button>
               <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-backs">View Map</button>
@@ -434,7 +440,7 @@
             <div class="card-body">
               <h5 class="card-title">7:30 PM - Evening Leisure Walk</h5>
               <p class="card-text">
-                Conclude your day with a reflective stroll through softly lit Cambridge streets.
+                Wind down your day with a reflective stroll through Cambridge’s softly lit streets.
               </p>
               <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-evening">Learn More</button>
               <div class="collapse mt-2" id="details-evening">
@@ -477,7 +483,7 @@
               <div class="card-body">
                 <h5 class="card-title">10:30 AM - Whipple Museum</h5>
                 <p class="card-text">
-                  Explore the evolution of scientific thought with historical instruments and models.
+                  Explore the evolution of scientific instruments and models at the Whipple Museum.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-whipple">Learn More</button>
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-whipple">View Map</button>
@@ -496,7 +502,7 @@
               <div class="card-body">
                 <h5 class="card-title">12:00 PM - Mathematical Bridge</h5>
                 <p class="card-text">
-                  Marvel at the brilliant engineering of the Mathematical Bridge at Queens’ College.
+                  Marvel at the brilliant engineering behind the Mathematical Bridge at Queens’ College.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-mathbridge">Learn More</button>
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-mathbridge">View Map</button>
@@ -515,12 +521,12 @@
               <div class="card-body">
                 <h5 class="card-title">1:30 PM - Free Time (Lunch/Leisure)</h5>
                 <p class="card-text">
-                  Enjoy a break to savor lunch and relax at your leisure.
+                  Enjoy a relaxed break to savor lunch and take in the local flavors.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-free1">Learn More</button>
                 <div class="collapse mt-2" id="details-free1">
                   <p class="small">
-                    Use this time to explore local dining options or simply rest. It’s the perfect opportunity to reflect on the morning’s discoveries.
+                    Use this time to explore local dining options or simply rest. It’s the perfect opportunity to immerse yourself in Cambridge’s culinary scene.
                   </p>
                 </div>
               </div>
@@ -533,7 +539,7 @@
               <div class="card-body">
                 <h5 class="card-title">3:00 PM - St. John's College & Bridge of Sighs</h5>
                 <p class="card-text">
-                  Explore the historic grounds and romantic Bridge of Sighs at St. John's College.
+                  Explore the enchanting grounds of St. John's College and admire the romantic Bridge of Sighs.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-stjohns">Learn More</button>
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-stjohns">View Map</button>
@@ -552,13 +558,13 @@
               <div class="card-body">
                 <h5 class="card-title">4:00 PM - The Round Church</h5>
                 <p class="card-text">
-                  Visit one of Cambridge’s oldest landmarks, renowned for its unique circular design.
+                  Visit one of Cambridge’s oldest landmarks, famed for its unique circular design.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-round">Learn More</button>
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-round">View Map</button>
                 <div class="collapse mt-2" id="details-round">
                   <p class="small">
-                    The Round Church offers insights into medieval architecture and religious history. Discover its origins, cultural significance, and the mysteries that continue to captivate visitors.
+                    The Round Church offers insights into medieval architecture and religious history. Discover its origins, cultural significance, and enduring mysteries.
                   </p>
                 </div>
               </div>
@@ -571,13 +577,13 @@
               <div class="card-body">
                 <h5 class="card-title">5:30 PM - Evensong at King's College Chapel</h5>
                 <p class="card-text">
-                  Experience a transcendent choral performance in the majestic setting of King's College Chapel.
+                  Experience the transcendent choral Evensong in the majestic setting of King's College Chapel.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-kings">Learn More</button>
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-kings">View Map</button>
                 <div class="collapse mt-2" id="details-kings">
                   <p class="small">
-                    Let the ethereal music and awe-inspiring Gothic architecture transport you. Learn about the chapel’s history, its role in Cambridge culture, and the power of its acoustics.
+                    Let the ethereal music and awe-inspiring Gothic architecture transport you. Learn about the chapel’s rich history, its role in Cambridge culture, and the power of its acoustics.
                   </p>
                 </div>
               </div>
@@ -590,13 +596,13 @@
               <div class="card-body">
                 <h5 class="card-title">7:00 PM - Corpus Clock</h5>
                 <p class="card-text">
-                  Marvel at the innovative design of the Corpus Clock, a modern icon in Cambridge.
+                  Marvel at the innovative Corpus Clock—a modern icon that redefines the passage of time.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-corpus">Learn More</button>
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-corpus">View Map</button>
                 <div class="collapse mt-2" id="details-corpus">
                   <p class="small">
-                    This striking timepiece symbolizes the beauty and impermanence of time. Learn about its design inspiration and the philosophy behind its mesmerizing appearance.
+                    This striking timepiece embodies the beauty and impermanence of time. Learn about its design inspiration and the philosophy behind its mesmerizing display.
                   </p>
                 </div>
               </div>
@@ -621,7 +627,7 @@
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-checkout">Learn More</button>
                 <div class="collapse mt-2" id="details-checkout">
                   <p class="small">
-                    Reflect on the comfort and luxury you enjoyed during your stay, and prepare for the final moments of your Cambridge journey.
+                    Reflect on the comfort and luxury you enjoyed during your stay. This smooth departure marks the end of an unforgettable Cambridge experience.
                   </p>
                 </div>
               </div>
@@ -634,12 +640,12 @@
               <div class="card-body">
                 <h5 class="card-title">11:30 AM - Farewell Breakfast at Fitzbillies</h5>
                 <p class="card-text">
-                  Enjoy a classic farewell breakfast at the iconic Fitzbillies.
+                  Savor a classic farewell breakfast at the iconic Fitzbillies.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-breakfast">Learn More</button>
                 <div class="collapse mt-2" id="details-breakfast">
                   <p class="small">
-                    Savor the famous Chelsea buns and traditional fare that have delighted visitors for generations. This heartfelt meal marks a memorable end to your trip.
+                    Enjoy the famous Chelsea buns and traditional fare that have delighted visitors for generations. This heartfelt meal is a perfect send-off from Cambridge.
                   </p>
                 </div>
               </div>
@@ -658,7 +664,7 @@
                 <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-backs">View Map</button>
                 <div class="collapse mt-2" id="details-laststroll">
                   <p class="small">
-                    Absorb the tranquil beauty of The Backs one last time as you prepare to depart. This peaceful walk is the perfect finale to your memorable journey.
+                    Absorb the tranquil beauty of The Backs one last time before you depart. This peaceful stroll is the perfect finale to your memorable journey.
                   </p>
                 </div>
               </div>
@@ -671,12 +677,12 @@
               <div class="card-body">
                 <h5 class="card-title">2:00 PM - Departure from Cambridge</h5>
                 <p class="card-text">
-                  Bid a fond farewell to Cambridge as you depart with cherished memories.
+                  Bid farewell to Cambridge with cherished memories and inspiration for your next adventure.
                 </p>
                 <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#details-departure">Learn More</button>
                 <div class="collapse mt-2" id="details-departure">
                   <p class="small">
-                    Carry with you the inspiration and beauty of Cambridge, and look forward to your next adventure. Your journey here has been one of discovery and delight.
+                    Carry the beauty and insights of Cambridge with you as you leave. Your journey here will remain a cherished part of your travel story.
                   </p>
                 </div>
               </div>
@@ -979,7 +985,7 @@
 
   <!-- Footer -->
   <footer class="text-center py-4">
-    <p class="small">&copy; 2025 Olly Jeffers. All rights reserved.</p>
+    <p class="small">2025 Olly Jeffers. All rights reserved.</p>
   </footer>
 
   <!-- Bootstrap JS Bundle -->
