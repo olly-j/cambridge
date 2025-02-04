@@ -997,5 +997,18 @@
       once: true
     });
   </script>
+<script>
+  // Listen for Bootstrap tab change event
+  var tabTriggerList = [].slice.call(document.querySelectorAll('button[data-bs-toggle="tab"]'))
+  tabTriggerList.forEach(function (tabTriggerEl) {
+    tabTriggerEl.addEventListener('shown.bs.tab', function (event) {
+      // Refresh AOS to recalculate element positions
+      if (typeof AOS !== 'undefined') {
+        AOS.refreshHard();
+      }
+    });
+  });
+</script>
+  
 </body>
 </html>
