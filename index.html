@@ -11,7 +11,6 @@
   <!-- AOS Animation CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
   <style>
-    /* Basic resets & smooth scrolling */
     body {
       font-family: 'Lato', sans-serif;
       background-color: #fafafa;
@@ -20,7 +19,7 @@
       margin: 0;
       padding: 0;
     }
-    /* Hero Section with Animated Gradient - Reduced Height */
+    /* Animated Gradient Background for Hero - Reduced Height */
     header.hero {
       position: relative;
       height: 250px;
@@ -35,8 +34,10 @@
     }
     header.hero .hero-overlay {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(0, 0, 0, 0.3);
     }
     header.hero .hero-content {
@@ -57,15 +58,11 @@
     header.hero .hero-content p {
       font-size: 1.1rem;
     }
-    /* Sticky Navigation Bar */
-    nav.sticky-nav {
-      position: sticky;
-      top: 0;
-      z-index: 1030;
+    /* Standard Navigation Tabs (Sticky nav removed) */
+    nav {
       background-color: #fff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    /* Navigation Tabs */
     .nav-tabs .nav-link {
       font-size: 1.1rem;
       font-weight: 600;
@@ -139,7 +136,7 @@
   </style>
 </head>
 <body>
-  <!-- Use semantic HTML5 elements -->
+  <!-- Hero Section -->
   <header class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content container">
@@ -148,8 +145,8 @@
     </div>
   </header>
 
-  <!-- Sticky Navigation Tabs -->
-  <nav class="sticky-nav">
+  <!-- Navigation Tabs (non-sticky) -->
+  <nav>
     <ul class="nav nav-tabs justify-content-center" id="itineraryTabs" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="true">Overview</button>
