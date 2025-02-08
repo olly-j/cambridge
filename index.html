@@ -6,216 +6,13 @@
   <title>Cambridge Luxury Trip Itinerary</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <style>
-    /* Basic resets and typography */
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Lato', sans-serif;
-      background-color: #fafafa;
-      color: #333;
-      scroll-behavior: smooth;
-    }
-    /* Hero Section */
-    header.hero {
-      position: relative;
-      height: 250px;
-      background: linear-gradient(270deg, #ff758c, #ff7eb3, #f9a1bc, #f7c6a9);
-      background-size: 800% 800%;
-      animation: gradientAnimation 15s ease infinite;
-    }
-    @keyframes gradientAnimation {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-    header.hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.3);
-    }
-    header.hero .hero-content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #fff;
-      padding: 0 20px;
-    }
-    header.hero .hero-content h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    header.hero .hero-content p {
-      font-size: 1.1rem;
-    }
-    /* CSS-only Tabs */
-    .tabs {
-      max-width: 1000px;
-      margin: 20px auto;
-    }
-    /* Hide the radio buttons */
-    .tabs input[type="radio"] {
-      display: none;
-    }
-    /* Tab labels */
-    .tab-labels {
-      display: flex;
-      border-bottom: 2px solid #ddd;
-    }
-    .tab-labels label {
-      flex: 1;
-      padding: 15px;
-      text-align: center;
-      cursor: pointer;
-      font-weight: 600;
-      background: #fff;
-      transition: background 0.3s ease, border-bottom 0.3s ease;
-    }
-    .tab-labels label:hover {
-      background: #f8f9fa;
-    }
-    /* Active tab style */
-    #tab-overview:checked ~ .tab-labels label[for="tab-overview"],
-    #tab-thursday:checked ~ .tab-labels label[for="tab-thursday"],
-    #tab-friday:checked ~ .tab-labels label[for="tab-friday"],
-    #tab-saturday:checked ~ .tab-labels label[for="tab-saturday"] {
-      border-bottom: 3px solid #ff758c;
-      color: #ff758c;
-    }
-    /* Tab content */
-    .tab-content {
-      padding: 20px 0;
-    }
-    .tab-pane {
-      display: none;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    #tab-overview:checked ~ .content #overview,
-    #tab-thursday:checked ~ .content #thursday,
-    #tab-friday:checked ~ .content #friday,
-    #tab-saturday:checked ~ .content #saturday {
-      display: block;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    /* Activity Card Styles */
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      overflow: hidden;
-      margin-bottom: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    }
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .card-body {
-      padding: 15px;
-    }
-    .card-title {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-    .card-text {
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-    .learn-more {
-      margin-top: 10px;
-      font-size: 0.85rem;
-      color: #555;
-    }
-    /* Layout for cards: use CSS Grid */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    /* Overview Table */
-    .overview-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .overview-table th, .overview-table td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: center;
-    }
-    .overview-table th {
-      background: #f0f0f0;
-      font-weight: 600;
-    }
-    /* CSS-only Modal using :target */
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.7);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 100;
-    }
-    .modal:target {
-      display: flex;
-    }
-    .modal-content {
-      background: #fff;
-      border-radius: 8px;
-      max-width: 800px;
-      width: 100%;
-      position: relative;
-      overflow: auto;
-      max-height: 90vh;
-      padding: 20px;
-    }
-    .modal-close {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      text-decoration: none;
-      font-size: 1.5rem;
-      color: #333;
-      font-weight: bold;
-    }
-    .modal-map iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
-    }
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #fff;
-      border-top: 1px solid #ddd;
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Hero Section with Animated Gradient -->
   <header class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content container">
@@ -224,572 +21,415 @@
     </div>
   </header>
 
-  <!-- CSS-only Tabs -->
-  <div class="tabs container">
-    <!-- Radio Buttons for Tabs -->
-    <input type="radio" name="tabs" id="tab-overview" checked>
-    <input type="radio" name="tabs" id="tab-thursday">
-    <input type="radio" name="tabs" id="tab-friday">
-    <input type="radio" name="tabs" id="tab-saturday">
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Itinerary</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav ms-auto">
+           <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#overview">Overview</a></li>
+           <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#thursday">Thursday</a></li>
+           <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#friday">Friday</a></li>
+           <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#saturday">Saturday</a></li>
+         </ul>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Tab Labels -->
-    <div class="tab-labels">
-      <label for="tab-overview">Overview</label>
-      <label for="tab-thursday">Thursday, 20 Feb 2025</label>
-      <label for="tab-friday">Friday, 21 Feb 2025</label>
-      <label for="tab-saturday">Saturday, 22 Feb 2025</label>
+  <!-- Main Content with Tabs -->
+  <div class="tab-content container my-5">
+    <!-- Overview Tab -->
+    <div class="tab-pane fade show active" id="overview">
+      <h2 class="section-title" data-aos="fade-up">Trip Overview</h2>
+      <p class="overview-intro" data-aos="fade-up" data-aos-delay="200">
+        This luxury trip takes you on a curated journey through Cambridge—from arrival to farewell. Immerse yourself in historic landmarks, cultural experiences, and culinary delights.
+      </p>
+      <div class="table-responsive" data-aos="fade-up" data-aos-delay="400">
+        <table class="table table-striped overview-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Activity</th>
+              <th>Description</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Thursday</td>
+              <td>11:00 AM</td>
+              <td>Arrival & Morning Exploration</td>
+              <td>Arrive in Cambridge and explore its vibrant streets.</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>12:00 PM</td>
+              <td>Trinity College</td>
+              <td>Stroll through historic courtyards and libraries.</td>
+              <td><a href="https://www.trin.cam.ac.uk/" target="_blank">Visit</a></td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>1:00 PM</td>
+              <td>Lunch at Mercado Central</td>
+              <td>Enjoy a pre-booked Spanish lunch in a lively setting.</td>
+              <td><a href="https://www.mercadocentral.co.uk/" target="_blank">Visit</a></td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>3:00 PM</td>
+              <td>Check-In at Graduate</td>
+              <td>Settle into your stylish accommodation.</td>
+              <td><a href="https://www.graduatehotels.com/cambridge/" target="_blank">Visit</a></td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>4:30 PM</td>
+              <td>Fitzwilliam Museum</td>
+              <td>Explore world-class art and antiquities.</td>
+              <td><a href="https://www.fitzmuseum.cam.ac.uk/" target="_blank">Visit</a></td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>6:00 PM</td>
+              <td>The Backs</td>
+              <td>Enjoy a scenic walk along the River Cam.</td>
+              <td><a href="#" class="view-map" data-map="backs">View Map</a></td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>7:30 PM</td>
+              <td>Evening Leisure Walk</td>
+              <td>Relax with a gentle stroll through the illuminated streets.</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>9:00 AM</td>
+              <td>Sedgwick Museum</td>
+              <td>Discover Earth’s ancient history.</td>
+              <td><a href="https://www.sedgwickmuseum.org/" target="_blank">Visit</a></td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>10:30 AM</td>
+              <td>Whipple Museum</td>
+              <td>Explore the evolution of scientific instruments.</td>
+              <td><a href="https://www.whipplemuseum.cam.ac.uk/" target="_blank">Visit</a></td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>12:00 PM</td>
+              <td>Mathematical Bridge</td>
+              <td>Admire an iconic architectural marvel.</td>
+              <td><a href="https://www.queens.cam.ac.uk/visiting-the-college/history/college-facts/the-mathematical-bridge" target="_blank">Visit</a></td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>3:00 PM</td>
+              <td>St. John's College & Bridge of Sighs</td>
+              <td>Explore historic grounds and a romantic bridge.</td>
+              <td><a href="https://www.joh.cam.ac.uk/" target="_blank">Visit</a></td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>4:00 PM</td>
+              <td>The Round Church</td>
+              <td>Experience a unique medieval landmark.</td>
+              <td><a href="https://www.churchatcastle.org/round-church" target="_blank">Visit</a></td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>5:30 PM</td>
+              <td>King's College Chapel</td>
+              <td>Attend a soul-stirring Evensong performance.</td>
+              <td><a href="https://www.kings.cam.ac.uk/chapel" target="_blank">Visit</a></td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>7:00 PM</td>
+              <td>Corpus Clock</td>
+              <td>Marvel at this modern icon of time.</td>
+              <td><a href="#" class="view-map" data-map="corpus">View Map</a></td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td>11:00 AM</td>
+              <td>Check-Out</td>
+              <td>Depart from the Graduate by Hilton Cambridge.</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td>11:30 AM</td>
+              <td>Farewell Breakfast at Fitzbillies</td>
+              <td>Savor a final, iconic Cambridge breakfast.</td>
+              <td><a href="https://www.fitzbillies.com/" target="_blank">Visit</a></td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td>1:00 PM</td>
+              <td>Last Stroll Through The Backs</td>
+              <td>Enjoy one last scenic walk along the River Cam.</td>
+              <td><a href="#" class="view-map" data-map="backs">View Map</a></td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td>2:00 PM</td>
+              <td>Departure</td>
+              <td>Bid farewell to Cambridge with lasting memories.</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <!-- Tab Content -->
-    <div class="content">
-      <!-- Overview Tab Content -->
-      <section id="overview" class="tab-pane">
-        <h2 class="section-title">Trip Overview</h2>
-        <p class="overview-intro">
-          This luxury trip takes you on a curated journey through Cambridge—from your arrival to a heartfelt farewell. Immerse yourself in historic landmarks, cultural experiences, and culinary delights. Browse the schedule below for a full day-by-day breakdown.
-        </p>
-        <div class="table-responsive">
-          <table class="overview-table">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Activity</th>
-                <th>Description</th>
-                <th>Link</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Thursday</td>
-                <td>11:00 AM</td>
-                <td>Arrival & Morning Exploration</td>
-                <td>Arrive in Cambridge and explore its vibrant streets.</td>
-                <td>—</td>
-              </tr>
-              <tr>
-                <td>Thursday</td>
-                <td>12:00 PM</td>
-                <td>Explore Trinity College</td>
-                <td>Stroll through historic courtyards and libraries.</td>
-                <td><a href="https://www.trin.cam.ac.uk/" target="_blank">Visit</a></td>
-              </tr>
-              <tr>
-                <td>Thursday</td>
-                <td>1:00 PM</td>
-                <td>Lunch at Mercado Central</td>
-                <td>Enjoy a pre-booked Spanish lunch in a lively setting.</td>
-                <td><a href="https://www.mercadocentral.co.uk/" target="_blank">Visit</a></td>
-              </tr>
-              <tr>
-                <td>Thursday</td>
-                <td>3:00 PM</td>
-                <td>Check-In at Graduate</td>
-                <td>Settle into your stylish accommodation.</td>
-                <td><a href="https://www.graduatehotels.com/cambridge/" target="_blank">Visit</a></td>
-              </tr>
-              <tr>
-                <td>Thursday</td>
-                <td>4:30 PM</td>
-                <td>Fitzwilliam Museum</td>
-                <td>Explore world-class art and antiquities.</td>
-                <td><a href="https://www.fitzmuseum.cam.ac.uk/" target="_blank">Visit</a></td>
-              </tr>
-              <tr>
-                <td>Thursday</td>
-                <td>6:00 PM</td>
-                <td>The Backs</td>
-                <td>Enjoy a scenic walk along the River Cam.</td>
-                <td><a href="https://puntcambridge.co.uk/wp-content/uploads/2017/10/backs-clare.jpg" target="_blank">View</a></td>
-              </tr>
-              <tr>
-                <td>Thursday</td>
-                <td>7:30 PM</td>
-                <td>Evening Leisure Walk</td>
-                <td>Relax with a gentle stroll through the illuminated streets.</td>
-                <td>—</td>
-              </tr>
-              <tr>
-                <td>Friday</td>
-                <td>9:00 AM</td>
-                <td>Sedgwick Museum</td>
-                <td>Discover Earth’s ancient history.</td>
-                <td><a href="https://www.sedgwickmuseum.org/" target="_blank">Visit</a></td>
-              </tr>
-              <tr>
-                <td>Friday</td>
-                <td>10:30 AM</td>
-                <td>Whipple Museum</td>
-                <td>Explore the evolution of scientific instruments.</td>
-                <td><a href="https://www.whipplemuseum.cam.ac.uk/" target="_blank">Visit</a></td>
-              </tr>
-              <tr>
-                <td>Friday</td>
-                <td>12:00 PM</td>
-                <td>Mathematical Bridge</td>
-                <td>Admire an iconic architectural marvel.</td>
-                <td><a href="https://www.queens.cam.ac.uk/visiting-the-college/history/college-facts/the-mathematical-bridge" target="_blank">Visit</a></td>
-              </tr>
-              <tr>
-                <td>Friday</td>
-                <td>3:00 PM</td>
-                <td>St. John's College & Bridge of Sighs</td>
-                <td>Explore historic grounds and a romantic bridge.</td>
-                <td><a href="https://www.joh.cam.ac.uk/" target="_blank">Visit</a></td>
-              </tr>
-              <tr>
-                <td>Friday</td>
-                <td>4:00 PM</td>
-                <td>The Round Church</td>
-                <td>Experience a unique medieval landmark.</td>
-                <td><a href="https://www.churchatcastle.org/round-church" target="_blank">Visit</a></td>
-              </tr>
-              <tr>
-                <td>Friday</td>
-                <td>5:30 PM</td>
-                <td>King's College Chapel</td>
-                <td>Attend a soul-stirring Evensong performance.</td>
-                <td><a href="https://www.kings.cam.ac.uk/chapel" target="_blank">Visit</a></td>
-              </tr>
-              <tr>
-                <td>Friday</td>
-                <td>7:00 PM</td>
-                <td>Corpus Clock</td>
-                <td>Marvel at this modern icon of time.</td>
-                <td><a href="https://www.corpus.cam.ac.uk/about-corpus/visiting-corpus/clock" target="_blank">Visit</a></td>
-              </tr>
-              <tr>
-                <td>Saturday</td>
-                <td>11:00 AM</td>
-                <td>Check-Out</td>
-                <td>Depart from the Graduate by Hilton Cambridge.</td>
-                <td>—</td>
-              </tr>
-              <tr>
-                <td>Saturday</td>
-                <td>11:30 AM</td>
-                <td>Farewell Breakfast at Fitzbillies</td>
-                <td>Savor a final, iconic Cambridge breakfast.</td>
-                <td><a href="https://www.fitzbillies.com/" target="_blank">Visit</a></td>
-              </tr>
-              <tr>
-                <td>Saturday</td>
-                <td>1:00 PM</td>
-                <td>Last Stroll Through The Backs</td>
-                <td>Enjoy one last scenic walk along the River Cam.</td>
-                <td><a href="https://puntcambridge.co.uk/wp-content/uploads/2017/10/backs-clare.jpg" target="_blank">View</a></td>
-              </tr>
-              <tr>
-                <td>Saturday</td>
-                <td>2:00 PM</td>
-                <td>Departure</td>
-                <td>Bid farewell to Cambridge with lasting memories.</td>
-                <td>—</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- Thursday Tab Content -->
-      <section id="thursday" class="tab-pane">
-        <h2 class="section-title">Thursday, 20 Feb 2025</h2>
-        <div class="card-grid">
-          <!-- Arrival & Morning Exploration -->
-          <div class="card">
-            <img src="https://powertraveller.com/wp-content/uploads/2024/08/cambridge-city-exploration-game-and-tour.jpg" alt="Morning Exploration in Cambridge">
-            <div class="card-body">
-              <h5 class="card-title">11:00 AM - Arrival & Morning Exploration</h5>
-              <p class="card-text">
-                Arrive in Cambridge and kick off your adventure with a scenic walk through its historic streets.
-              </p>
-              <p class="learn-more">
-                Start your day by immersing yourself in the city's vibrant atmosphere. Enjoy a coffee at a local café and take in the architecture that tells the story of Cambridge.
-              </p>
-            </div>
-          </div>
-          <!-- Explore Trinity College -->
-          <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Trinity_College_-_Great_Court_02.jpg/1200px-Trinity_College_-_Great_Court_02.jpg" alt="Trinity College">
-            <div class="card-body">
-              <h5 class="card-title">12:00 PM - Explore Trinity College</h5>
-              <p class="card-text">
-                Wander through the storied halls and lush courtyards of Trinity College.
-              </p>
-              <p class="learn-more">
-                Discover the legacy of one of Cambridge’s most prestigious colleges. Learn about its rich history, impressive architecture, and the traditions that continue to inspire scholars.
-              </p>
-              <p><a href="https://www.trin.cam.ac.uk/" target="_blank">Visit Trinity College</a></p>
-            </div>
-          </div>
-          <!-- Lunch at Mercado Central -->
-          <div class="card">
-            <img src="https://www.visitcambridge.org/app/uploads/2023/08/20200108_Mercado_Central_food_038_Patricia_Niven-1024x0-c-default.jpg" alt="Mercado Central">
-            <div class="card-body">
-              <h5 class="card-title">1:00 PM - Lunch at Mercado Central (Booked)</h5>
-              <p class="card-text">
-                Enjoy a delicious Spanish lunch in a vibrant setting.
-              </p>
-              <p class="learn-more">
-                Mercado Central offers an authentic culinary experience. Savor unique dishes crafted with passion and learn about the fusion of traditional and modern Spanish flavors.
-              </p>
-              <p><a href="https://www.mercadocentral.co.uk/" target="_blank">Visit Mercado Central</a></p>
-            </div>
-          </div>
-          <!-- Check-In at Graduate -->
-          <div class="card">
-            <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/587743466.jpg?k=da310be6f8cf6cd0920419b7279ad5cbad73d3ff11ca2a75c7deeb3c34b74cd4&o=&hp=1" alt="Check-In at Graduate by Hilton Cambridge">
-            <div class="card-body">
-              <h5 class="card-title">3:00 PM - Check-In at Graduate by Hilton Cambridge</h5>
-              <p class="card-text">
-                Settle into your elegant accommodation and relax before an exciting afternoon.
-              </p>
-              <p class="learn-more">
-                The Graduate blends modern comfort with historic charm. Unwind in luxurious surroundings that set the perfect tone for your journey.
-              </p>
-              <p><a href="https://www.graduatehotels.com/cambridge/" target="_blank">Visit Graduate by Hilton Cambridge</a></p>
-            </div>
-          </div>
-          <!-- Fitzwilliam Museum -->
-          <div class="card">
-            <img src="https://www.visitcambridge.org/app/uploads/2021/11/Fitzwilliam-1024x0-c-default.jpg" alt="Fitzwilliam Museum">
-            <div class="card-body">
-              <h5 class="card-title">4:30 PM - Visit Fitzwilliam Museum</h5>
-              <p class="card-text">
-                Explore a world of art and antiquities at the Fitzwilliam Museum.
-              </p>
-              <p class="learn-more">
-                From ancient artifacts to modern masterpieces, the museum's collections offer a deep dive into the evolution of art and culture. Discover inspiring stories from every era.
-              </p>
-              <p><a href="https://www.fitzmuseum.cam.ac.uk/" target="_blank">Visit Fitzwilliam Museum</a></p>
-            </div>
-          </div>
-          <!-- The Backs -->
-          <div class="card">
-            <img src="https://puntcambridge.co.uk/wp-content/uploads/2017/10/backs-clare.jpg" alt="The Backs">
-            <div class="card-body">
-              <h5 class="card-title">6:00 PM - Stroll Along The Backs</h5>
-              <p class="card-text">
-                Enjoy a serene walk along the River Cam with picturesque views.
-              </p>
-              <p class="learn-more">
-                The Backs provide a stunning blend of natural beauty and historic architecture. Take a moment to reflect on the centuries of academic and cultural legacy that line the river.
-              </p>
-              <p><a href="https://puntcambridge.co.uk/wp-content/uploads/2017/10/backs-clare.jpg" target="_blank">View The Backs</a></p>
-            </div>
-          </div>
-          <!-- Evening Leisure Walk -->
-          <div class="card">
-            <img src="https://img.fotocommunity.com/quayside-cambridge-early-evening-304c3832-e0a0-4002-9af3-f07e4adc277e.jpg?height=1080" alt="Evening Leisure Walk">
-            <div class="card-body">
-              <h5 class="card-title">7:30 PM - Evening Leisure Walk</h5>
-              <p class="card-text">
-                Wind down your day with a reflective stroll through softly lit Cambridge streets.
-              </p>
-              <p class="learn-more">
-                Experience the enchanting transformation of Cambridge as dusk falls. Let the gentle glow of streetlights and historic buildings create a calming, magical end to your day.
-              </p>
-            </div>
+    <!-- Thursday Tab Content -->
+    <div class="tab-pane" id="thursday">
+      <h2 class="section-title" data-aos="fade-up">Thursday, 20 Feb 2025</h2>
+      <div class="card-grid">
+        <!-- Card: Arrival & Morning Exploration -->
+        <div class="card" data-aos="fade-right">
+          <img src="https://powertraveller.com/wp-content/uploads/2024/08/cambridge-city-exploration-game-and-tour.jpg" alt="Morning Exploration in Cambridge">
+          <div class="card-body">
+            <h5 class="card-title">11:00 AM - Arrival & Morning Exploration</h5>
+            <p class="card-text">Arrive in Cambridge and begin your adventure with a scenic walk through its historic streets.</p>
+            <p class="learn-more">Immerse yourself in the city's vibrant atmosphere as you explore local cafés and soak in the architectural wonders of Cambridge.</p>
           </div>
         </div>
-      </section>
-
-      <!-- Friday Tab Content -->
-      <section id="friday" class="tab-pane">
-        <h2 class="section-title">Friday, 21 Feb 2025</h2>
-        <div class="card-grid">
-          <!-- Sedgwick Museum -->
-          <div class="card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRslJnSdHz7r_8dKTatHiNQrhA09gY6yl9tSZnoIH_KVodtt5erX-fDxz1UxEl9E5x9k8E&usqp=CAU" alt="Sedgwick Museum">
-            <div class="card-body">
-              <h5 class="card-title">9:00 AM - Sedgwick Museum</h5>
-              <p class="card-text">
-                Discover Earth’s ancient history through fascinating exhibits of fossils and minerals.
-              </p>
-              <p class="learn-more">
-                Uncover the secrets of our planet’s formation with interactive displays that bring geological time to life. Learn how natural processes have shaped the Earth over millions of years.
-              </p>
-              <p><a href="https://www.sedgwickmuseum.org/" target="_blank">Visit Sedgwick Museum</a></p>
-            </div>
-          </div>
-          <!-- Whipple Museum -->
-          <div class="card">
-            <img src="https://fitz-cms-images.s3.eu-west-2.amazonaws.com/main-gallery-whipple.jpg" alt="Whipple Museum">
-            <div class="card-body">
-              <h5 class="card-title">10:30 AM - Whipple Museum</h5>
-              <p class="card-text">
-                Explore the evolution of scientific instruments and models at the Whipple Museum.
-              </p>
-              <p class="learn-more">
-                Delve into the history of innovation with artifacts that showcase humanity’s journey of discovery. Learn about the breakthroughs that transformed our understanding of science.
-              </p>
-              <p><a href="https://www.whipplemuseum.cam.ac.uk/" target="_blank">Visit Whipple Museum</a></p>
-            </div>
-          </div>
-          <!-- Mathematical Bridge -->
-          <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Queens'_College_-_Mathematical_Bridge.jpg/1200px-Queens'_College_-_Mathematical_Bridge.jpg" alt="Mathematical Bridge">
-            <div class="card-body">
-              <h5 class="card-title">12:00 PM - Mathematical Bridge</h5>
-              <p class="card-text">
-                Marvel at the brilliant engineering behind the Mathematical Bridge at Queens’ College.
-              </p>
-              <p class="learn-more">
-                This iconic structure fuses art and mathematics in perfect harmony. Discover the engineering marvels that make this bridge a celebrated landmark.
-              </p>
-              <p><a href="https://www.queens.cam.ac.uk/visiting-the-college/history/college-facts/the-mathematical-bridge" target="_blank">Visit Mathematical Bridge</a></p>
-            </div>
-          </div>
-          <!-- Free Time for Lunch/Leisure -->
-          <div class="card">
-            <img src="https://bills-website.co.uk/wp-content/uploads/2024/10/Lunch-image-SEO-1.png" alt="Free Time for Lunch/Leisure">
-            <div class="card-body">
-              <h5 class="card-title">1:30 PM - Free Time (Lunch/Leisure)</h5>
-              <p class="card-text">
-                Enjoy a relaxed break to savor lunch and explore local dining options.
-              </p>
-              <p class="learn-more">
-                Use this time to immerse yourself in Cambridge’s culinary scene. It’s the perfect opportunity to relax and reflect on the morning’s explorations.
-              </p>
-            </div>
-          </div>
-          <!-- St. John's College & Bridge of Sighs -->
-          <div class="card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw7dBjuuuS8YEQbFD4ednkjyXMY7pziM-6XRTSmFeqMtzXT_4NaZTZg1dqcF0CvMA4yOw&usqp=CAU" alt="St. John's College & Bridge of Sighs">
-            <div class="card-body">
-              <h5 class="card-title">3:00 PM - St. John's College & Bridge of Sighs</h5>
-              <p class="card-text">
-                Explore the enchanting grounds of St. John's College and admire the romantic Bridge of Sighs.
-              </p>
-              <p class="learn-more">
-                Steeped in tradition and romance, this landmark invites you to learn about its storied past and the legends that give it its name.
-              </p>
-              <p><a href="https://www.joh.cam.ac.uk/" target="_blank">Visit St. John's College</a></p>
-            </div>
-          </div>
-          <!-- The Round Church -->
-          <div class="card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF2hQ1bQu_hYqDuCK_hDDNEI4-glSGd9j8vw1RI0IkodSmUKGz4X4h-LGhR621yRcBrSs&usqp=CAU" alt="The Round Church">
-            <div class="card-body">
-              <h5 class="card-title">4:00 PM - The Round Church</h5>
-              <p class="card-text">
-                Visit one of Cambridge’s oldest landmarks, renowned for its unique circular design.
-              </p>
-              <p class="learn-more">
-                Learn about the medieval origins and religious significance of this rare architectural gem. Its intriguing design tells a story of ancient faith and ingenuity.
-              </p>
-              <p><a href="https://www.churchatcastle.org/round-church" target="_blank">Visit The Round Church</a></p>
-            </div>
-          </div>
-          <!-- King's College Chapel (Evensong) -->
-          <div class="card">
-            <img src="https://images.squarespace-cdn.com/content/v1/654d080e64a51407294bfe52/36d1f47c-cdc6-4f32-b2b6-ff0c4bf99dd7/Untitled+design-128.jpg" alt="King's College Chapel">
-            <div class="card-body">
-              <h5 class="card-title">5:30 PM - Evensong at King's College Chapel</h5>
-              <p class="card-text">
-                Experience the transcendent choral Evensong in the majestic setting of King's College Chapel.
-              </p>
-              <p class="learn-more">
-                Let the ethereal music and stunning Gothic architecture transport you. Discover the chapel’s history and its enduring impact on Cambridge’s cultural and spiritual life.
-              </p>
-              <p><a href="https://www.kings.cam.ac.uk/chapel" target="_blank">Visit King's College Chapel</a></p>
-            </div>
-          </div>
-          <!-- Corpus Clock -->
-          <div class="card">
-            <img src="https://media.wired.com/photos/5a550ea0db37656b90cca37e/4:3/w_628,h_471,c_limit/st_chronophage_f.jpg" alt="Corpus Clock">
-            <div class="card-body">
-              <h5 class="card-title">7:00 PM - Corpus Clock</h5>
-              <p class="card-text">
-                Marvel at the innovative Corpus Clock—a modern icon that redefines the passage of time.
-              </p>
-              <p class="learn-more">
-                Explore the striking design and underlying philosophy of this contemporary timepiece. It challenges your perception of time with its bold aesthetic.
-              </p>
-              <p><a href="https://www.corpus.cam.ac.uk/about-corpus/visiting-corpus/clock" target="_blank">Visit Corpus Clock</a></p>
-            </div>
+        <!-- Card: Trinity College -->
+        <div class="card" data-aos="fade-left">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Trinity_College_-_Great_Court_02.jpg/1200px-Trinity_College_-_Great_Court_02.jpg" alt="Trinity College">
+          <div class="card-body">
+            <h5 class="card-title">12:00 PM - Explore Trinity College</h5>
+            <p class="card-text">Wander through the storied halls and lush courtyards of Trinity College.</p>
+            <p class="learn-more">Discover its rich history and academic legacy while admiring the impressive architecture that inspires scholars worldwide.</p>
+            <p><a href="https://www.trin.cam.ac.uk/" target="_blank">Visit Trinity College</a></p>
           </div>
         </div>
-      </section>
-
-      <!-- Saturday Tab Content -->
-      <section id="saturday" class="tab-pane">
-        <h2 class="section-title">Saturday, 22 Feb 2025</h2>
-        <div class="card-grid">
-          <!-- Check-Out -->
-          <div class="card">
-            <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/587743466.jpg?k=da310be6f8cf6cd0920419b7279ad5cbad73d3ff11ca2a75c7deeb3c34b74cd4&o=&hp=1" alt="Check-Out from Graduate by Hilton Cambridge">
-            <div class="card-body">
-              <h5 class="card-title">11:00 AM - Check-Out from Graduate by Hilton Cambridge</h5>
-              <p class="card-text">
-                Bid farewell to your elegant home base as you check out after an inspiring stay.
-              </p>
-              <p class="learn-more">
-                Reflect on the comfort and luxury you experienced during your stay. This smooth departure marks the end of a remarkable Cambridge journey.
-              </p>
-            </div>
-          </div>
-          <!-- Farewell Breakfast -->
-          <div class="card">
-            <img src="https://i2-prod.cambridge-news.co.uk/incoming/article17283408.ece/ALTERNATES/s615/0_Fitzbillieschelseabunreview19112019_08jpeg.jpg" alt="Farewell Breakfast at Fitzbillies">
-            <div class="card-body">
-              <h5 class="card-title">11:30 AM - Farewell Breakfast at Fitzbillies</h5>
-              <p class="card-text">
-                Savor a classic farewell breakfast at the iconic Fitzbillies.
-              </p>
-              <p class="learn-more">
-                Enjoy the famous Chelsea buns and traditional fare that have delighted visitors for generations. This heartfelt meal is a perfect send-off from Cambridge.
-              </p>
-              <p><a href="https://www.fitzbillies.com/" target="_blank">Visit Fitzbillies</a></p>
-            </div>
-          </div>
-          <!-- Last Stroll Through The Backs -->
-          <div class="card">
-            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/06/83/44/paseo-por-el-rio-al-fondo.jpg?w=900&h=500&s=1" alt="Last Stroll Through The Backs">
-            <div class="card-body">
-              <h5 class="card-title">1:00 PM - Last Stroll Through The Backs</h5>
-              <p class="card-text">
-                Enjoy one final, reflective walk along the scenic River Cam.
-              </p>
-              <p class="learn-more">
-                Absorb the tranquil beauty of The Backs one last time before you depart. Let the peaceful views leave you with lasting memories.
-              </p>
-              <p><a href="https://puntcambridge.co.uk/wp-content/uploads/2017/10/backs-clare.jpg" target="_blank">View The Backs</a></p>
-            </div>
-          </div>
-          <!-- Departure -->
-          <div class="card">
-            <img src="https://s3-eu-west-1.amazonaws.com/eurekar-v2/uploads/images/original/2fa.jpg" alt="Departure">
-            <div class="card-body">
-              <h5 class="card-title">2:00 PM - Departure from Cambridge</h5>
-              <p class="card-text">
-                Bid farewell to Cambridge with cherished memories and inspiration for your next adventure.
-              </p>
-              <p class="learn-more">
-                Carry the beauty and insights of Cambridge with you as you leave. Your journey here will continue to inspire your future travels.
-              </p>
-            </div>
+        <!-- Card: Lunch at Mercado Central -->
+        <div class="card" data-aos="fade-right">
+          <img src="https://www.visitcambridge.org/app/uploads/2023/08/20200108_Mercado_Central_food_038_Patricia_Niven-1024x0-c-default.jpg" alt="Mercado Central">
+          <div class="card-body">
+            <h5 class="card-title">1:00 PM - Lunch at Mercado Central (Booked)</h5>
+            <p class="card-text">Savor a delicious Spanish lunch in a vibrant, bustling setting.</p>
+            <p class="learn-more">Enjoy authentic flavors and discover the fusion of traditional and modern culinary techniques that make this dining experience unique.</p>
+            <p><a href="https://www.mercadocentral.co.uk/" target="_blank">Visit Mercado Central</a></p>
           </div>
         </div>
-      </section>
+        <!-- Card: Check-In at Graduate -->
+        <div class="card" data-aos="fade-left">
+          <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/587743466.jpg?k=da310be6f8cf6cd0920419b7279ad5cbad73d3ff11ca2a75c7deeb3c34b74cd4&o=&hp=1" alt="Check-In at Graduate by Hilton Cambridge">
+          <div class="card-body">
+            <h5 class="card-title">3:00 PM - Check-In at Graduate by Hilton Cambridge</h5>
+            <p class="card-text">Settle into your elegant accommodation and relax before the afternoon’s adventures.</p>
+            <p class="learn-more">Experience modern comfort intertwined with historic charm in a setting designed to inspire and rejuvenate.</p>
+            <p><a href="https://www.graduatehotels.com/cambridge/" target="_blank">Visit Graduate by Hilton Cambridge</a></p>
+          </div>
+        </div>
+        <!-- Card: Fitzwilliam Museum -->
+        <div class="card" data-aos="fade-right">
+          <img src="https://www.visitcambridge.org/app/uploads/2021/11/Fitzwilliam-1024x0-c-default.jpg" alt="Fitzwilliam Museum">
+          <div class="card-body">
+            <h5 class="card-title">4:30 PM - Visit Fitzwilliam Museum</h5>
+            <p class="card-text">Explore centuries of art and history at the world-renowned Fitzwilliam Museum.</p>
+            <p class="learn-more">From ancient artifacts to modern masterpieces, immerse yourself in diverse collections that chronicle human creativity.</p>
+            <p><a href="https://www.fitzmuseum.cam.ac.uk/" target="_blank">Visit Fitzwilliam Museum</a></p>
+          </div>
+        </div>
+        <!-- Card: The Backs -->
+        <div class="card" data-aos="fade-left">
+          <img src="https://puntcambridge.co.uk/wp-content/uploads/2017/10/backs-clare.jpg" alt="The Backs">
+          <div class="card-body">
+            <h5 class="card-title">6:00 PM - Stroll Along The Backs</h5>
+            <p class="card-text">Enjoy a scenic walk along the River Cam, admiring picturesque college gardens.</p>
+            <p class="learn-more">The Backs offer a stunning blend of nature and history, where you can reflect on centuries of academic and cultural legacy.</p>
+            <p><a href="#modal-backs" class="view-map">View The Backs Map</a></p>
+          </div>
+        </div>
+        <!-- Card: Evening Leisure Walk -->
+        <div class="card" data-aos="fade-up">
+          <img src="https://img.fotocommunity.com/quayside-cambridge-early-evening-304c3832-e0a0-4002-9af3-f07e4adc277e.jpg?height=1080" alt="Evening Leisure Walk">
+          <div class="card-body">
+            <h5 class="card-title">7:30 PM - Evening Leisure Walk</h5>
+            <p class="card-text">Wind down your day with a reflective stroll through Cambridge’s softly lit streets.</p>
+            <p class="learn-more">Let the enchanting evening ambiance and historic architecture inspire a moment of quiet reflection.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </main>
 
-  <!-- CSS-only Modal Implementation using :target -->
-  <!-- Each modal is a full-screen overlay that becomes visible when its ID is targeted -->
-  <div id="modal-checkin" class="modal">
-    <div class="modal-content">
-      <a href="#" class="modal-close">&times;</a>
-      <h3>Graduate by Hilton Cambridge - Map</h3>
-      <div class="modal-map">
-        <iframe src="https://maps.google.com/maps?q=Graduate%20by%20Hilton%20Cambridge%2C%20Cambridge%2C%20UK&output=embed" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <!-- Friday Tab Content -->
+    <div class="tab-pane" id="friday">
+      <h2 class="section-title" data-aos="fade-up">Friday, 21 Feb 2025</h2>
+      <div class="card-grid">
+        <!-- Card: Sedgwick Museum -->
+        <div class="card" data-aos="fade-right">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRslJnSdHz7r_8dKTatHiNQrhA09gY6yl9tSZnoIH_KVodtt5erX-fDxz1UxEl9E5x9k8E&usqp=CAU" alt="Sedgwick Museum">
+          <div class="card-body">
+            <h5 class="card-title">9:00 AM - Sedgwick Museum</h5>
+            <p class="card-text">Discover Earth’s ancient history through fascinating exhibits of fossils and minerals.</p>
+            <p class="learn-more">Explore interactive displays that reveal geological processes and uncover the secrets of our planet’s formation.</p>
+            <p><a href="https://www.sedgwickmuseum.org/" target="_blank">Visit Sedgwick Museum</a></p>
+          </div>
+        </div>
+        <!-- Card: Whipple Museum -->
+        <div class="card" data-aos="fade-left">
+          <img src="https://fitz-cms-images.s3.eu-west-2.amazonaws.com/main-gallery-whipple.jpg" alt="Whipple Museum">
+          <div class="card-body">
+            <h5 class="card-title">10:30 AM - Whipple Museum</h5>
+            <p class="card-text">Explore the evolution of scientific instruments and models at the Whipple Museum.</p>
+            <p class="learn-more">Discover fascinating artifacts that trace the journey of scientific discovery and groundbreaking innovation.</p>
+            <p><a href="https://www.whipplemuseum.cam.ac.uk/" target="_blank">Visit Whipple Museum</a></p>
+          </div>
+        </div>
+        <!-- Card: Mathematical Bridge -->
+        <div class="card" data-aos="fade-right">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Queens'_College_-_Mathematical_Bridge.jpg/1200px-Queens'_College_-_Mathematical_Bridge.jpg" alt="Mathematical Bridge">
+          <div class="card-body">
+            <h5 class="card-title">12:00 PM - Mathematical Bridge</h5>
+            <p class="card-text">Marvel at the brilliant engineering behind the Mathematical Bridge at Queens’ College.</p>
+            <p class="learn-more">This iconic structure fuses art and mathematics—discover its innovative design and the stories that make it legendary.</p>
+            <p><a href="https://www.queens.cam.ac.uk/visiting-the-college/history/college-facts/the-mathematical-bridge" target="_blank">Visit Mathematical Bridge</a></p>
+          </div>
+        </div>
+        <!-- Card: Free Time for Lunch/Leisure -->
+        <div class="card" data-aos="fade-left">
+          <img src="https://bills-website.co.uk/wp-content/uploads/2024/10/Lunch-image-SEO-1.png" alt="Free Time for Lunch/Leisure">
+          <div class="card-body">
+            <h5 class="card-title">1:30 PM - Free Time (Lunch/Leisure)</h5>
+            <p class="card-text">Enjoy a relaxed break to savor lunch and explore local dining options.</p>
+            <p class="learn-more">Recharge with a leisurely lunch—immerse yourself in the local culinary scene and reflect on your morning explorations.</p>
+          </div>
+        </div>
+        <!-- Card: St. John's College & Bridge of Sighs -->
+        <div class="card" data-aos="fade-right">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw7dBjuuuS8YEQbFD4ednkjyXMY7pziM-6XRTSmFeqMtzXT_4NaZTZg1dqcF0CvMA4yOw&usqp=CAU" alt="St. John's College & Bridge of Sighs">
+          <div class="card-body">
+            <h5 class="card-title">3:00 PM - St. John's College & Bridge of Sighs</h5>
+            <p class="card-text">Explore the enchanting grounds of St. John's College and admire the romantic Bridge of Sighs.</p>
+            <p class="learn-more">Steeped in tradition and romance, this landmark invites you to learn about its storied past and the legends behind the famous bridge.</p>
+            <p><a href="https://www.joh.cam.ac.uk/" target="_blank">Visit St. John's College</a></p>
+          </div>
+        </div>
+        <!-- Card: The Round Church -->
+        <div class="card" data-aos="fade-left">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF2hQ1bQu_hYqDuCK_hDDNEI4-glSGd9j8vw1RI0IkodSmUKGz4X4h-LGhR621yRcBrSs&usqp=CAU" alt="The Round Church">
+          <div class="card-body">
+            <h5 class="card-title">4:00 PM - The Round Church</h5>
+            <p class="card-text">Visit one of Cambridge’s oldest landmarks, famed for its unique circular design.</p>
+            <p class="learn-more">Learn about its medieval origins and religious significance—a rare architectural gem that reflects Cambridge’s ancient history.</p>
+            <p><a href="https://www.churchatcastle.org/round-church" target="_blank">Visit The Round Church</a></p>
+          </div>
+        </div>
+        <!-- Card: King's College Chapel -->
+        <div class="card" data-aos="fade-right">
+          <img src="https://images.squarespace-cdn.com/content/v1/654d080e64a51407294bfe52/36d1f47c-cdc6-4f32-b2b6-ff0c4bf99dd7/Untitled+design-128.jpg" alt="King's College Chapel">
+          <div class="card-body">
+            <h5 class="card-title">5:30 PM - Evensong at King's College Chapel</h5>
+            <p class="card-text">Experience a transcendent choral performance in the majestic setting of King's College Chapel.</p>
+            <p class="learn-more">Let the ethereal music and stunning Gothic architecture transport you. Discover the chapel’s rich history and its lasting cultural impact.</p>
+            <p><a href="https://www.kings.cam.ac.uk/chapel" target="_blank">Visit King's College Chapel</a></p>
+          </div>
+        </div>
+        <!-- Card: Corpus Clock -->
+        <div class="card" data-aos="fade-left">
+          <img src="https://media.wired.com/photos/5a550ea0db37656b90cca37e/4:3/w_628,h_471,c_limit/st_chronophage_f.jpg" alt="Corpus Clock">
+          <div class="card-body">
+            <h5 class="card-title">7:00 PM - Corpus Clock</h5>
+            <p class="card-text">Marvel at the innovative Corpus Clock—a modern icon that redefines time.</p>
+            <p class="learn-more">Explore its striking design and underlying philosophy that challenge your perception of time.</p>
+            <p><a href="#modal-corpus" class="view-map">View Corpus Clock Map</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Saturday Tab Content -->
+    <div class="tab-pane" id="saturday">
+      <h2 class="section-title" data-aos="fade-up">Saturday, 22 Feb 2025</h2>
+      <div class="card-grid">
+        <!-- Card: Check-Out -->
+        <div class="card" data-aos="fade-right">
+          <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/587743466.jpg?k=da310be6f8cf6cd0920419b7279ad5cbad73d3ff11ca2a75c7deeb3c34b74cd4&o=&hp=1" alt="Check-Out from Graduate by Hilton Cambridge">
+          <div class="card-body">
+            <h5 class="card-title">11:00 AM - Check-Out from Graduate by Hilton Cambridge</h5>
+            <p class="card-text">Bid farewell to your elegant home base after an inspiring stay.</p>
+            <p class="learn-more">Reflect on the comfort and luxury you experienced during your stay as you prepare to conclude your Cambridge journey.</p>
+          </div>
+        </div>
+        <!-- Card: Farewell Breakfast -->
+        <div class="card" data-aos="fade-left">
+          <img src="https://i2-prod.cambridge-news.co.uk/incoming/article17283408.ece/ALTERNATES/s615/0_Fitzbillieschelseabunreview19112019_08jpeg.jpg" alt="Farewell Breakfast at Fitzbillies">
+          <div class="card-body">
+            <h5 class="card-title">11:30 AM - Farewell Breakfast at Fitzbillies</h5>
+            <p class="card-text">Savor a classic farewell breakfast at the iconic Fitzbillies.</p>
+            <p class="learn-more">Enjoy the famous Chelsea buns and traditional fare that have delighted visitors for generations—a warm send-off from Cambridge.</p>
+            <p><a href="https://www.fitzbillies.com/" target="_blank">Visit Fitzbillies</a></p>
+          </div>
+        </div>
+        <!-- Card: Last Stroll Through The Backs -->
+        <div class="card" data-aos="fade-right">
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/06/83/44/paseo-por-el-rio-al-fondo.jpg?w=900&h=500&s=1" alt="Last Stroll Through The Backs">
+          <div class="card-body">
+            <h5 class="card-title">1:00 PM - Last Stroll Through The Backs</h5>
+            <p class="card-text">Enjoy one final, reflective walk along the scenic River Cam.</p>
+            <p class="learn-more">Absorb the tranquil beauty of The Backs one last time before you depart. Let the peaceful views create lasting memories of your journey.</p>
+            <p><a href="#modal-backs" class="view-map">View The Backs Map</a></p>
+          </div>
+        </div>
+        <!-- Card: Departure -->
+        <div class="card" data-aos="fade-left">
+          <img src="https://s3-eu-west-1.amazonaws.com/eurekar-v2/uploads/images/original/2fa.jpg" alt="Departure">
+          <div class="card-body">
+            <h5 class="card-title">2:00 PM - Departure from Cambridge</h5>
+            <p class="card-text">Bid farewell to Cambridge with cherished memories and inspiration for your next adventure.</p>
+            <p class="learn-more">Carry the beauty and insights of this historic city with you as you leave, and let the experience inspire your future travels.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div id="modal-trinity" class="modal">
-    <div class="modal-content">
-      <a href="#" class="modal-close">&times;</a>
-      <h3>Trinity College - Map</h3>
-      <div class="modal-map">
-        <iframe src="https://maps.google.com/maps?q=Trinity%20College%2C%20Cambridge%2C%20UK&output=embed" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-  <div id="modal-mercado" class="modal">
-    <div class="modal-content">
-      <a href="#" class="modal-close">&times;</a>
-      <h3>Mercado Central - Map</h3>
-      <div class="modal-map">
-        <iframe src="https://maps.google.com/maps?q=Mercado%20Central%2C%20Cambridge%2C%20UK&output=embed" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-  <div id="modal-fitz" class="modal">
-    <div class="modal-content">
-      <a href="#" class="modal-close">&times;</a>
-      <h3>Fitzwilliam Museum - Map</h3>
-      <div class="modal-map">
-        <iframe src="https://maps.google.com/maps?q=Fitzwilliam%20Museum%2C%20Cambridge%2C%20UK&output=embed" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
+
+  <!-- Interactive Map Modals -->
+  <!-- Modal: The Backs -->
   <div id="modal-backs" class="modal">
     <div class="modal-content">
       <a href="#" class="modal-close">&times;</a>
       <h3>The Backs - Map</h3>
       <div class="modal-map">
-        <iframe src="https://maps.google.com/maps?q=The%20Backs%2C%20Cambridge%2C%20UK&output=embed" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <div id="map-backs" class="map"></div>
       </div>
     </div>
   </div>
-  <div id="modal-kings" class="modal">
-    <div class="modal-content">
-      <a href="#" class="modal-close">&times;</a>
-      <h3>King's College Chapel - Map</h3>
-      <div class="modal-map">
-        <iframe src="https://maps.google.com/maps?q=King's%20College%20Chapel%2C%20Cambridge%2C%20UK&output=embed" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
+  <!-- Modal: Corpus Clock -->
   <div id="modal-corpus" class="modal">
     <div class="modal-content">
       <a href="#" class="modal-close">&times;</a>
       <h3>Corpus Clock - Map</h3>
       <div class="modal-map">
-        <iframe src="https://maps.google.com/maps?q=Corpus%20Clock%2C%20Cambridge%2C%20UK&output=embed" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-  <div id="modal-heong" class="modal">
-    <div class="modal-content">
-      <a href="#" class="modal-close">&times;</a>
-      <h3>The Heong Gallery - Map</h3>
-      <div class="modal-map">
-        <iframe src="https://maps.google.com/maps?q=Downing%20College%2C%20Cambridge%2C%20UK&output=embed" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-  <div id="modal-polar" class="modal">
-    <div class="modal-content">
-      <a href="#" class="modal-close">&times;</a>
-      <h3>Polar Museum - Map</h3>
-      <div class="modal-map">
-        <iframe src="https://maps.google.com/maps?q=Polar%20Museum%2C%20Cambridge%2C%20UK&output=embed" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-  <div id="modal-millroad" class="modal">
-    <div class="modal-content">
-      <a href="#" class="modal-close">&times;</a>
-      <h3>Mill Road - Map</h3>
-      <div class="modal-map">
-        <iframe src="https://maps.google.com/maps?q=Mill%20Road%2C%20Cambridge%2C%20UK&output=embed" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-  <div id="modal-jesus" class="modal">
-    <div class="modal-content">
-      <a href="#" class="modal-close">&times;</a>
-      <h3>Jesus Green - Map</h3>
-      <div class="modal-map">
-        <iframe src="https://maps.google.com/maps?q=Jesus%20Green%2C%20Cambridge%2C%20UK&output=embed" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-  <div id="modal-adc" class="modal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <a href="#" class="modal-close">&times;</a>
-        <h3>ADC Theatre - Map</h3>
-        <div class="modal-map">
-          <iframe src="https://maps.google.com/maps?q=ADC%20Theatre%2C%20Cambridge%2C%20UK&output=embed" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div>
+        <div id="map-corpus" class="map"></div>
       </div>
     </div>
   </div>
 
+  <!-- Footer -->
   <footer>
     <p>2025 Olly Jeffers. All rights reserved.</p>
   </footer>
+
+  <!-- Bootstrap JS Bundle (for responsive navbar, etc.) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Google Maps API (Replace YOUR_API_KEY with your actual API key) -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMaps"></script>
+  <!-- Custom JS -->
+  <script src="js/app.js"></script>
 </body>
 </html>
