@@ -1,0 +1,9 @@
+/* style.css */
+
+/* Ensure that map containers have a fixed height */
+.map {
+  width: 100%;
+  height: 300px;
+}
+
+/* Additional custom styles can be added below */
