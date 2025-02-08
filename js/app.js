@@ -1,6 +1,6 @@
 // app.js
 
-// Initialize AOS for smooth animations
+// Initialize AOS for smooth scroll animations
 AOS.init({
   duration: 800,
   easing: 'ease-in-out',
@@ -10,22 +10,22 @@ AOS.init({
 // Initialize Google Maps for modals
 function initMaps() {
   // Map for The Backs
-  var mapBaks = new google.maps.Map(document.getElementById("googleMapBaks"), {
-    center: { lat: 52.2053, lng: 0.1218 }, // Cambridge center
+  var mapBacks = new google.maps.Map(document.getElementById("map-backs"), {
+    center: { lat: 52.2053, lng: 0.1218 },
     zoom: 15,
     disableDefaultUI: true,
     styles: [
-      // Optional custom map styles here
+      // Add custom styles here if desired
     ]
   });
   
   // Map for Corpus Clock
-  var mapCorpus = new google.maps.Map(document.getElementById("googleMapCorpus"), {
-    center: { lat: 52.2043, lng: 0.1196 }, // Corpus Clock area
+  var mapCorpus = new google.maps.Map(document.getElementById("map-corpus"), {
+    center: { lat: 52.2043, lng: 0.1196 },
     zoom: 17,
     disableDefaultUI: true,
     styles: [
-      // Optional custom map styles here
+      // Add custom styles here if desired
     ]
   });
 }

@@ -1,8 +1,8 @@
 /* style.css */
-
 :root {
   --primary-color: #ff758c;
   --secondary-color: #ff7eb3;
+  --accent-color: #f9a1bc;
   --background-color: #fafafa;
   --text-color: #333;
   --transition-speed: 0.3s;
@@ -16,10 +16,118 @@ body {
   font-family: var(--body-font);
 }
 
-/* Ensure map containers have a fixed height */
-.map {
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 250px;
+  background: linear-gradient(270deg, var(--primary-color), var(--secondary-color), var(--accent-color), var(--secondary-color));
+  background-size: 800% 800%;
+  animation: gradientAnimation 15s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 300px;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+.hero-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
 }
 
-/* Additional custom styles can be added here */
+/* Section Titles */
+.section-title {
+  font-family: var(--heading-font);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+/* Overview Table */
+.overview-table th, .overview-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+.overview-table th {
+  background: #f0f0f0;
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Card Styles */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card-body {
+  padding: 15px;
+}
+.card-title {
+  font-family: var(--heading-font);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+.card-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.learn-more {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* Navbar Overrides */
+.navbar-brand {
+  font-family: var(--heading-font);
+  color: var(--primary-color) !important;
+}
+
+/* Footer */
+footer {
+  background: #fff;
+  border-top: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Additional styles for vibrant animations can be added below */
