@@ -1,15 +1,29 @@
-// js/app.js
+// app.js
 
-// Initialize interactive maps if needed using the Google Maps API
+// Initialize AOS for animations
+AOS.init({
+  duration: 800,
+  easing: 'ease-in-out',
+  once: true
+});
+
+// Initialize Google Maps for modals
 function initMaps() {
-  // Create a map for each interactive element (example for The Backs)
+  // Map for The Backs
   var mapBacks = new google.maps.Map(document.getElementById('map-backs'), {
     center: { lat: 52.2053, lng: 0.1218 },
     zoom: 15,
     disableDefaultUI: true,
-    styles: [ /* Custom map styles for a modern look */ ]
+    styles: [ /* Custom styles if desired */ ]
   });
-  // Similarly, initialize other maps...
+
+  // Map for Corpus Clock
+  var mapCorpus = new google.maps.Map(document.getElementById('map-corpus'), {
+    center: { lat: 52.2043, lng: 0.1196 },
+    zoom: 17,
+    disableDefaultUI: true,
+    styles: [ /* Custom styles if desired */ ]
+  });
 }
 
 window.initMaps = initMaps;
