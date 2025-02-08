@@ -16,44 +16,10 @@ body {
   font-family: var(--body-font);
 }
 
-/* Hero Section */
-.hero {
-  position: relative;
-  height: 250px;
-  overflow: hidden;
-}
-.hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Ensure map containers have a fixed height */
+.map {
   width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.3);
-}
-.hero-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  color: #fff;
-}
-.hero-btn {
-  margin-top: 20px;
+  height: 300px;
 }
 
-/* Section Titles */
-.section-title {
-  font-family: var(--heading-font);
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-/* Additional styles as defined in index.html can be moved here */
+/* Additional custom styles can be added here */
